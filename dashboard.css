@@ -1396,6 +1396,8 @@ tbody tr:hover {
         padding: 12px 14px;
         border-right: 0;
         border-bottom: 1px solid var(--line);
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
 
     .sidebar-content {
