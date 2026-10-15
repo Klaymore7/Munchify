@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 150" width="100%" height="100%">
+  <defs>
+    <style>
+      .brand-color { fill: #E64A19; }
+      .brand-text { font-family: 'Poppins', 'Segoe UI', 'Montserrat', sans-serif; font-weight: 700; font-size: 42px; fill: #E64A19; letter-spacing: 1px; }
+    </style>
+  </defs>
+  <!-- Icon: Location pin stacked on top of cloche dish -->
+  <g transform="translate(10, 0)">
+    <!-- Location Pin -->
+    <path class="brand-color" d="M 65,15 C 51.2,15 40,26.2 40,40 C 40,56.5 65,85 65,85 C 65,85 90,56.5 90,40 C 90,26.2 78.8,15 65,15 Z M 65,48 C 60.6,48 57,44.4 57,40 C 57,35.6 60.6,32 65,32 C 69.4,32 73,35.6 73,40 C 73,44.4 69.4,48 65,48 Z"/>
+    <!-- Cloche / Serving Dish Dome -->
+    <path class="brand-color" d="M 65,80 C 31.9,80 5,103.5 5,132.5 L 125,132.5 C 125,103.5 98.1,80 65,80 Z"/>
+    <!-- Cloche Tray Base -->
+    <rect class="brand-color" x="0" y="137" width="130" height="8" rx="4"/>
+  </g>
+  <!-- Typography: MUNCHIFY beside the icon -->
+  <text x="175" y="98" class="brand-text">MUNCHIFY</text>
+</svg>

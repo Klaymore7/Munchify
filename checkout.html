@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munchify | Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="customer-view workflow-view">
+        <header class="customer-header">
+            <a href="index.html" class="workflow-brand" aria-label="Back to Munchify">
+                <img src="./images/munchify-clean-logo.svg" alt="Munchify" class="customer-brand-logo">
+            </a>
+            <nav class="customer-nav" aria-label="Checkout navigation">
+                <a href="index.html#restaurants">Restaurants</a>
+                <a href="track-order.html" id="checkout-track-link">Track order</a>
+            </nav>
+            <a href="index.html" class="customer-account-link">Continue shopping</a>
+        </header>
+
+        <main class="customer-main workflow-main">
+            <div class="workflow-heading">
+                <p class="eyebrow eyebrow-dark">YOUR ORDER</p>
+                <h1>Checkout</h1>
+                <p>Review your meal, choose a delivery area, and confirm where to bring it.</p>
+            </div>
+
+            <div class="checkout-layout">
+                <section class="checkout-section" aria-labelledby="checkout-cart-title">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">CART</p>
+                            <h2 id="checkout-cart-title">Your items</h2>
+                        </div>
+                        <a href="index.html#restaurants">Add more</a>
+                    </div>
+                    <p id="checkout-empty" class="checkout-empty" hidden>Your cart is empty. Browse the restaurants to add something delicious.</p>
+                    <div id="checkout-items" class="checkout-items"></div>
+                </section>
+
+                <section class="checkout-section checkout-form-section" aria-labelledby="delivery-title">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">DELIVERY DETAILS</p>
+                            <h2 id="delivery-title">Where should we deliver?</h2>
+                        </div>
+                    </div>
+                    <div id="checkout-auth-notice" class="checkout-notice" hidden>
+                        <p>Sign in with a customer account to place this order. Your cart will be here when you return.</p>
+                        <a href="auth.html#login" class="primary-btn">Sign in to continue</a>
+                    </div>
+                    <form id="checkout-form">
+                        <label class="checkout-field">
+                            <span>Delivery address</span>
+                            <input type="text" name="address" autocomplete="street-address" placeholder="House number, street, and nearby landmark" required>
+                        </label>
+                        <label class="checkout-field">
+                            <span>Delivery area</span>
+                            <select name="zone" required>
+                                <option value="">Choose an Abuja area</option>
+                                <option value="Wuse">Wuse</option>
+                                <option value="Garki">Garki</option>
+                                <option value="Gwarinpa">Gwarinpa</option>
+                                <option value="Maitama">Maitama</option>
+                                <option value="Jabi">Jabi / Utako</option>
+                                <option value="Lugbe">Lugbe</option>
+                            </select>
+                        </label>
+                        <label class="checkout-field">
+                            <span>Delivery instructions <small>Optional</small></span>
+                            <textarea name="instructions" rows="3" placeholder="Gate code, building name, or other helpful details"></textarea>
+                        </label>
+                        <fieldset class="payment-method">
+                            <legend>Payment</legend>
+                            <label><input type="radio" name="payment" value="cash" checked> Cash on delivery</label>
+                            <p>Pay the rider when your order arrives. Online payments are not enabled in this demo.</p>
+                        </fieldset>
+                        <div class="checkout-totals">
+                            <div><span>Subtotal</span><strong id="checkout-subtotal">₦0</strong></div>
+                            <div><span>Delivery</span><strong id="checkout-delivery">₦0</strong></div>
+                            <div class="checkout-grand-total"><span>Total</span><strong id="checkout-total">₦0</strong></div>
+                        </div>
+                        <button type="submit" class="checkout-submit">Place order</button>
+                        <p id="checkout-message" class="checkout-message" role="status" aria-live="polite"></p>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="menu-data.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

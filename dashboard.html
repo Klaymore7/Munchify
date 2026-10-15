@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" class="css">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-header">
+                    <img src="./images/munchify-clean-logo.svg" alt="Munchify logo" class="brand-logo">
+                    <div class="header-text">
+                        <span>Hi, <span id="user-name">Vendor</span></span>
+                    </div>
+                    <div class="sidebar-profile">
+                        <img src="./images/Hamburger-cuate.svg" id="vendor-sidebar-photo" alt="Vendor profile photo">
+                    </div>
+                    <button class="sd-toggle" aria-label="Toggle sidebar">
+                        <img src="./images/next.png" alt="Toggle sidebar">
+                    </button>
+                </div>
+
+                <nav class="sidebar-nav" aria-label="Sidebar">
+                    <ul>
+                        <li class="active">
+                            <a href="dashboard.html">
+                                <i class="bx bx-home"></i>
+                                <span class="nav-link-text">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="daily-operations.html">
+                                <i class="bx bx-bar-chart"></i>
+                                <span class="nav-link-text">Daily Operations</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="business-management.html">
+                                <i class="bx bx-cog"></i>
+                                <span class="nav-link-text">Business Management</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="delivery-dynamics.html">
+                                <i class="bx bx-map"></i>
+                                <span class="nav-link-text">Delivery Dynamics</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="log-out">
+                    <button id="log-out-btn">
+                        <i class="bx bx-arrow-out-left-square-half"></i>
+                        <span class="out-text">Log out</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="header">
+                <div class="header-title">
+                    <p class="eyebrow">Welcome back</p>
+                    <h2>Overview</h2>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="bx bx-search"></i>
+                        <input type="text" placeholder="Search orders" aria-label="Search orders">
+                    </div>
+                    <button class="icon-btn" aria-label="Settings">
+                        <i class="bx bx-cog"></i>
+                    </button>
+                    <button class="icon-btn" aria-label="Notifications">
+                        <i class="bx bx-bell-ring"></i>
+                    </button>
+                </div>
+            </header>
+
+            <section class="stats-grid">
+                <article class="stat-card accent-card">
+                    <div class="stat-icon">
+                        <i class="bx bx-wallet"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="label">Revenue</span>
+                        <strong id="dashboard-revenue">₦0</strong>
+                        <small class="positive">Total food subtotal on customer orders</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon alt">
+                        <i class="bx bx-cart-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="label">Orders</span>
+                        <strong id="dashboard-order-count">0</strong>
+                        <small class="positive">Customer checkouts in this browser demo</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon warm">
+                        <i class="bx bx-star"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="label">Rating</span>
+                        <strong id="dashboard-rating">-</strong>
+                        <small class="neutral"><i class="bx bx-time-five"></i> 61 reviews this month</small>
+                    </div>
+                </article>
+            </section>
+
+            <section class="panel-grid">
+                <article class="panel sales-panel">
+                    <div class="panel-header">
+                        <div>
+                            <p class="eyebrow">Performance</p>
+                            <h3>Sales overview</h3>
+                        </div>
+                        <span class="pill">This month</span>
+                    </div>
+
+                    <div class="chart-legend">
+                        <span><i class="dot primary"></i> Orders</span>
+                        <span><i class="dot secondary"></i> Revenue</span>
+                    </div>
+
+                    <div class="chart-bars" aria-label="Sales chart">
+                        <div class="bar-group">
+                            <span class="bar bar-one" style="height: 48%"></span>
+                            <label>Mon</label>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar bar-two" style="height: 62%"></span>
+                            <label>Tue</label>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar bar-one" style="height: 77%"></span>
+                            <label>Wed</label>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar bar-two" style="height: 55%"></span>
+                            <label>Thu</label>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar bar-one" style="height: 90%"></span>
+                            <label>Fri</label>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar bar-two" style="height: 74%"></span>
+                            <label>Sat</label>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar bar-one" style="height: 82%"></span>
+                            <label>Sun</label>
+                        </div>
+                    </div>
+                </article>
+
+                <aside class="panel activity-panel">
+                    <div class="panel-header compact">
+                        <div>
+                            <p class="eyebrow">Quick stats</p>
+                            <h3>Kitchen pulse</h3>
+                        </div>
+                    </div>
+
+                    <div class="pulse-list">
+                        <div class="pulse-item">
+                            <div class="pulse-icon orange"><i class="bx bx-time-five"></i></div>
+                            <div>
+                                <strong id="dashboard-live-orders">0</strong>
+                                <span>live orders</span>
+                            </div>
+                        </div>
+                        <div class="pulse-item">
+                            <div class="pulse-icon peach"><i class="bx bx-package"></i></div>
+                            <div>
+                                <strong id="dashboard-average-order">₦0</strong>
+                                <span>average order</span>
+                            </div>
+                        </div>
+                        <div class="pulse-item">
+                            <div class="pulse-icon cream"><i class="bx bx-group"></i></div>
+                            <div>
+                                <strong id="dashboard-active-zones">0</strong>
+                                <span>active delivery zones</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="panel orders-panel">
+                <div class="panel-header">
+                    <div>
+                        <p class="eyebrow">Live feed</p>
+                        <h3>Recent orders</h3>
+                    </div>
+                    <a href="daily-operations.html" class="view-all">View all</a>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Item</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dashboard-order-rows">
+                            <tr><td colspan="6">Customer orders will appear here after checkout.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <aside class="right-panel">
+            <div class="promo-card">
+                <p class="eyebrow">Featured</p>
+                <h3 id="dashboard-featured-name">Popular dish</h3>
+                <img id="dashboard-featured-image" src="./images/imgi_110_G-Burger-By-Galaxy-Abuja-2.jpg" alt="Featured dish">
+                <div class="promo-meta">
+                    <span id="dashboard-featured-count">Based on customer orders</span>
+                    <strong id="dashboard-featured-price">-</strong>
+                </div>
+            </div>
+
+            <div class="mini-panel">
+                <div class="panel-header compact">
+                    <div>
+                        <p class="eyebrow">Top picks</p>
+                        <h3>Popular dishes</h3>
+                    </div>
+                </div>
+
+                <div class="menu-list" id="dashboard-popular-items"></div>
+            </div>
+        </aside>
+    </div>
+    <script src="menu-data.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

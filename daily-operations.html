@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Operations</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-header">
+                    <img src="./images/munchify-clean-logo.svg" alt="Munchify logo" class="brand-logo">
+                    <div class="header-text">
+                        <span>Hi, <span id="user-name">Vendor</span></span>
+                    </div>
+                    <div class="sidebar-profile">
+                        <img src="./images/Hamburger-cuate.svg" id="vendor-sidebar-photo" alt="Vendor profile photo">
+                    </div>
+                    <button class="sd-toggle" aria-label="Toggle sidebar">
+                        <img src="./images/next.png" alt="Toggle sidebar">
+                    </button>
+                </div>
+
+                <nav class="sidebar-nav" aria-label="Sidebar">
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                <i class="bx bx-home"></i>
+                                <span class="nav-link-text">Home</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="daily-operations.html">
+                                <i class="bx bx-bar-chart"></i>
+                                <span class="nav-link-text">Daily Operations</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="business-management.html">
+                                <i class="bx bx-cog"></i>
+                                <span class="nav-link-text">Business Management</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="delivery-dynamics.html">
+                                <i class="bx bx-map"></i>
+                                <span class="nav-link-text">Delivery Dynamics</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="log-out">
+                    <button id="log-out-btn">
+                        <i class="bx bx-arrow-out-left-square-half"></i>
+                        <span class="out-text">Log out</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="header">
+                <div class="header-title">
+                    <p class="eyebrow">Operations</p>
+                    <h2>Daily Operations</h2>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="bx bx-search"></i>
+                        <input type="text" placeholder="Search live orders" aria-label="Search live orders">
+                    </div>
+                    <button class="icon-btn" aria-label="Settings"><i class="bx bx-cog"></i></button>
+                    <button class="icon-btn" aria-label="Notifications"><i class="bx bx-bell-ring"></i></button>
+                </div>
+            </header>
+
+            <section class="stats-grid three-up">
+                <article class="stat-card accent-card">
+                    <div class="stat-icon"><i class="bx bx-cart-alt"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Live Orders</span>
+                        <strong id="daily-live-count">0</strong>
+                        <small class="positive" id="daily-order-subtitle">Customer orders in this demo</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon alt"><i class="bx bx-package"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Prepared</span>
+                        <strong id="daily-preparing-count">0</strong>
+                        <small class="neutral" id="daily-preparing-subtitle">Orders currently in the kitchen</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon warm"><i class="bx bx-bike"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Riders Busy</span>
+                        <strong id="daily-rider-count">0</strong>
+                        <small class="positive" id="daily-rider-subtitle">Riders assigned to active deliveries</small>
+                    </div>
+                </article>
+            </section>
+
+            <section class="panel-grid ops-layout">
+                <article class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <p class="eyebrow">Live stream</p>
+                            <h3>Orders in progress</h3>
+                        </div>
+                        <span class="pill">Updated now</span>
+                    </div>
+
+                    <div class="live-order-list" id="live-order-list" aria-live="polite"></div>
+                </article>
+
+                <aside class="panel side-panel">
+                    <div class="panel-header compact">
+                        <div>
+                            <p class="eyebrow">Management</p>
+                            <h3>Menu inventory</h3>
+                        </div>
+                    </div>
+
+                    <div class="inventory-list" id="inventory-list">
+                        <div class="inventory-item">
+                            <div>
+                                <strong>Jollof Rice</strong>
+                                <small>32 portions left</small>
+                            </div>
+                            <span class="status accepted">Active</span>
+                            <button class="inventory-remove" type="button" aria-label="Remove Jollof Rice">Remove</button>
+                        </div>
+
+                        <div class="inventory-item">
+                            <div>
+                                <strong>Burger Combo</strong>
+                                <small>8 portions left</small>
+                            </div>
+                            <span class="status preparing">Low</span>
+                            <button class="inventory-remove" type="button" aria-label="Remove Burger Combo">Remove</button>
+                        </div>
+
+                        <div class="inventory-item">
+                            <div>
+                                <strong>Veggie Wrap</strong>
+                                <small>15 portions left</small>
+                            </div>
+                            <span class="status accepted">Active</span>
+                            <button class="inventory-remove" type="button" aria-label="Remove Veggie Wrap">Remove</button>
+                        </div>
+
+                        <div class="inventory-item">
+                            <div>
+                                <strong>Plantain Bowl</strong>
+                                <small>0 portions left</small>
+                            </div>
+                            <span class="status completed">Paused</span>
+                            <button class="inventory-remove" type="button" aria-label="Remove Plantain Bowl">Remove</button>
+                        </div>
+                    </div>
+
+                    <form class="inventory-form">
+                        <p class="inventory-form-title">Add menu item</p>
+                        <label>
+                            Restaurant
+                            <select id="inventory-restaurant" name="restaurant-id" required></select>
+                        </label>
+                        <label>
+                            Item name
+                            <input type="text" name="item-name" placeholder="e.g. Chicken wrap" required>
+                        </label>
+                        <label>
+                            Category
+                            <select name="item-category" required>
+                                <option value="Burgers">Burgers</option>
+                                <option value="Rice">Rice</option>
+                                <option value="Seafood">Seafood</option>
+                                <option value="Wraps">Wraps</option>
+                                <option value="Meats">Meats</option>
+                                <option value="Desserts">Desserts</option>
+                            </select>
+                        </label>
+                        <div class="inventory-form-row">
+                            <label>
+                                Price (₦)
+                                <input type="number" name="item-price" min="0" step="50" placeholder="4500" required>
+                            </label>
+                            <label>
+                                Portions
+                                <input type="number" name="item-stock" min="0" step="1" placeholder="20" required>
+                            </label>
+                        </div>
+                        <button class="inventory-add" type="submit"><i class="bx bx-plus"></i> Add item</button>
+                    </form>
+                </aside>
+            </section>
+
+            <section class="panel rider-panel">
+                <div class="panel-header">
+                    <div>
+                        <p class="eyebrow">Riders</p>
+                        <h3>Rider contacts</h3>
+                    </div>
+                    <a href="#riders" class="view-all">Rider contacts</a>
+                </div>
+
+                <div class="rider-grid" id="riders" aria-live="polite"></div>
+                <form class="rider-form" id="rider-form">
+                    <label>Rider name <input name="rider-name" required></label>
+                    <label>Phone number <input name="rider-phone" type="tel" required></label>
+                    <label>Status <select name="rider-status"><option>Available</option><option>On route</option><option>At pickup</option></select></label>
+                    <button type="submit" class="inventory-add">Add rider</button>
+                </form>
+            </section>
+        </main>
+
+        <aside class="right-panel">
+            <div class="promo-card">
+                <p class="eyebrow">Today</p>
+                <h3>Kitchen snapshot</h3>
+                <div class="mini-stat-block">
+                    <strong id="daily-completion-rate">0%</strong>
+                        <span>Orders delivered</span>
+                </div>
+                <div class="mini-stat-block">
+                    <strong id="daily-average-wait">0 min</strong>
+                    <span>Average live order age</span>
+                </div>
+            </div>
+
+            <div class="mini-panel">
+                <div class="panel-header compact">
+                    <div>
+                        <p class="eyebrow">Priority</p>
+                        <h3>Alerts</h3>
+                    </div>
+                </div>
+                <ul class="alert-list" id="ops-alerts">
+                    <li>Order and stock alerts will appear here.</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <script src="menu-data.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

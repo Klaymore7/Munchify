@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Dynamics</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-header">
+                    <img src="./images/munchify-clean-logo.svg" alt="Munchify logo" class="brand-logo">
+                    <div class="header-text">
+                        <span>Hi, <span id="user-name">Vendor</span></span>
+                    </div>
+                    <div class="sidebar-profile">
+                        <img src="./images/Hamburger-cuate.svg" id="vendor-sidebar-photo" alt="Vendor profile photo">
+                    </div>
+                    <button class="sd-toggle" aria-label="Toggle sidebar">
+                        <img src="./images/next.png" alt="Toggle sidebar">
+                    </button>
+                </div>
+
+                <nav class="sidebar-nav" aria-label="Sidebar">
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                <i class="bx bx-home"></i>
+                                <span class="nav-link-text">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="daily-operations.html">
+                                <i class="bx bx-bar-chart"></i>
+                                <span class="nav-link-text">Daily Operations</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="business-management.html">
+                                <i class="bx bx-cog"></i>
+                                <span class="nav-link-text">Business Management</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="delivery-dynamics.html">
+                                <i class="bx bx-map"></i>
+                                <span class="nav-link-text">Delivery Dynamics</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="log-out">
+                    <button id="log-out-btn">
+                        <i class="bx bx-arrow-out-left-square-half"></i>
+                        <span class="out-text">Log out</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="header">
+                <div class="header-title">
+                    <p class="eyebrow">Logistics</p>
+                    <h2>Delivery Dynamics</h2>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="bx bx-search"></i>
+                        <input type="text" placeholder="Track dispatch" aria-label="Track dispatch">
+                    </div>
+                    <button class="icon-btn" aria-label="Settings"><i class="bx bx-cog"></i></button>
+                    <button class="icon-btn" aria-label="Notifications"><i class="bx bx-bell-ring"></i></button>
+                </div>
+            </header>
+
+            <section class="stats-grid">
+                <article class="stat-card accent-card">
+                    <div class="stat-icon"><i class="bx bx-timer"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Avg. delivery</span>
+                        <strong id="delivery-average-eta">0 min</strong>
+                        <small class="positive" id="delivery-eta-note">Based on active customer orders</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon alt"><i class="bx bx-error-circle"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Delay alerts</span>
+                        <strong id="delivery-delay-count">0</strong>
+                        <small class="neutral" id="delivery-delay-note">Orders needing an ETA adjustment</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon warm"><i class="bx bx-map-pin"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Coverage</span>
+                        <strong id="delivery-zone-count">0 zones</strong>
+                        <small class="positive" id="delivery-coverage-note">Distinct areas in active orders</small>
+                    </div>
+                </article>
+            </section>
+
+            <section class="panel-grid ops-layout">
+                <article class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <p class="eyebrow">Dispatch</p>
+                            <h3>Delay control</h3>
+                        </div>
+                        <span class="pill">Dispatch queue</span>
+                    </div>
+
+                    <form class="delay-form" id="delay-form">
+                        <label>
+                            <span>Order reference</span>
+                            <select name="order-id" id="delay-order-id" required>
+                                <option value="">Choose an active order</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            <span>Reason for delay</span>
+                            <select name="reason" id="delay-reason">
+                                <option>Traffic congestion</option>
+                                <option>Kitchen backlog</option>
+                                <option>Weather disruption</option>
+                                <option>Vehicle issue</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            <span>Additional minutes</span>
+                            <input type="number" name="minutes" value="15" min="5" max="60" required>
+                        </label>
+
+                        <label>
+                            <span>Customer note</span>
+                            <textarea rows="3" name="note">We are experiencing a temporary delay. We will share an updated arrival time as soon as possible.</textarea>
+                        </label>
+
+                        <div class="form-actions">
+                            <button type="button" class="secondary-btn dark-button" data-delay-action="save">Save delay</button>
+                            <button type="button" class="primary-btn" data-delay-action="notify">Send update</button>
+                        </div>
+                        <p id="delivery-feedback" role="status" aria-live="polite"></p>
+                    </form>
+                </article>
+
+                <aside class="panel side-panel">
+                    <div class="panel-header compact">
+                        <div>
+                            <p class="eyebrow">Queue</p>
+                            <h3>Dispatch timeline</h3>
+                        </div>
+                    </div>
+
+                    <div class="timeline-list compact-timeline" id="dispatch-timeline"></div>
+                </aside>
+            </section>
+
+            <section class="panel">
+                <div class="panel-header">
+                    <div>
+                        <p class="eyebrow">Operations</p>
+                        <h3>Zone performance</h3>
+                    </div>
+                </div>
+
+                <div class="zone-grid"></div>
+            </section>
+        </main>
+
+        <aside class="right-panel">
+            <div class="promo-card">
+                <p class="eyebrow">Incident</p>
+                <h3>Response status</h3>
+                <div class="mini-stat-block">
+                    <strong id="delivery-active-alerts">0 alerts</strong>
+                    <span>Active emergency notices</span>
+                </div>
+                <div class="mini-stat-block">
+                    <strong id="delivery-active-riders">0 riders</strong>
+                    <span>On standby for rerouting</span>
+                </div>
+            </div>
+
+            <div class="mini-panel">
+                <div class="panel-header compact">
+                    <div>
+                        <p class="eyebrow">Action</p>
+                        <h3>Prepared steps</h3>
+                    </div>
+                </div>
+                <ul class="alert-list">
+                    <li>Notify riders about temporary reroute.</li>
+                    <li>Push updates to customer messaging.</li>
+                    <li>Reassign high-priority orders first.</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <script src="menu-data.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

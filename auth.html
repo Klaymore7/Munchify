@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munchify | Account</title>
+    <link rel="stylesheet" href="auth-style.css" class="css">
+</head>
+<body>
+    <div class="wrapper" id="login-panel">
+        <form action="#" id="login-form" autocomplete="off">
+            <a href="index.html" aria-label="Back to Munchify"><img src="./images/munchify-clean-logo.svg" alt="Munchify"></a>
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Username" autocomplete="off" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" autocomplete="off" required>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox" name="remember">Remember me</label>
+            </div>
+            <fieldset>
+                <legend>Continue as</legend>
+                <label for="login-customer-role"><input type="radio" name="login-role" id="login-customer-role" value="customer" checked> Customer</label>
+                <label for="login-restaurant-role"><input type="radio" name="login-role" id="login-restaurant-role" value="restaurant"> Restaurant</label>
+            </fieldset>
+            <button type="submit" class="btn">Login</button>
+            <div class="register-link">
+                <p>Don't have an account? <a href="#register" data-auth-view="register">Register</a></p>
+            </div>
+        </form>
+        <details class="vendor-demo-logins">
+            <summary>Test vendor accounts</summary>
+            <p>Local demo credentials for testing each restaurant account.</p>
+            <div id="vendor-demo-accounts"></div>
+        </details>
+    </div>
+    <div class="wrapper" id="registration-panel" hidden>
+        <form action="#" id="registration-form" autocomplete="off">
+            <a href="index.html" aria-label="Back to Munchify"><img src="./images/munchify-clean-logo.svg" alt="Munchify"></a>
+            <fieldset>
+                <legend>I want to join as a:</legend>
+
+                <label for="customer-role" class="radio-label">
+                    <input type="radio" name="user-role" value="customer" id="customer-role" checked>
+                    Customer
+                </label>
+                <label for="restaurant-role" class="radio-label">
+                    <input type="radio" name="user-role" id="restaurant-role" value="restaurant">
+                    Restaurant
+                </label>
+            </fieldset>
+            <div class="input-box" id="display-name-field">
+                <input type="text" name="display-name" placeholder="Full name / restaurant name" autocomplete="name" required>
+            </div>
+            <fieldset id="vendor-restaurant-field" hidden>
+                <legend>Restaurant details</legend>
+                <label>
+                    Restaurant name
+                    <input type="text" name="restaurant-name" minlength="2" maxlength="80" required>
+                </label>
+                <label>
+                    Cuisine / specialties
+                    <input type="text" name="restaurant-cuisine" placeholder="e.g. Seafood, grills" maxlength="100" required>
+                </label>
+                <label>
+                    Main delivery area
+                    <select name="restaurant-area" required>
+                        <option value="">Choose an Abuja area</option>
+                        <option value="Wuse">Wuse</option>
+                        <option value="Garki">Garki</option>
+                        <option value="Gwarinpa">Gwarinpa</option>
+                        <option value="Maitama">Maitama</option>
+                        <option value="Jabi / Utako">Jabi / Utako</option>
+                        <option value="Lugbe">Lugbe</option>
+                    </select>
+                </label>
+                <div class="vendor-detail-row">
+                    <label>
+                        Typical delivery time (min)
+                        <input type="number" name="restaurant-eta" min="10" max="120" value="30" required>
+                    </label>
+                    <label>
+                        Delivery fee (₦)
+                        <input type="number" name="restaurant-delivery-fee" min="0" step="50" value="800" required>
+                    </label>
+                </div>
+            </fieldset>
+            <div class="input-box">
+                <input type="tel" name="phone" placeholder="Phone number" autocomplete="tel" required>
+            </div>
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Username" autocomplete="off" minlength="3" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" autocomplete="off" minlength="8" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="confirm-password" placeholder="Confirm your password" autocomplete="off" minlength="8" required>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="login-link">
+                <p>Already have an account? <a href="#login" data-auth-view="login">Login</a></p>
+            </div>
+        </form>
+    </div>
+
+    <p class="auth-status" id="auth-status" role="status" aria-live="polite" hidden></p>
+    <script src="menu-data.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

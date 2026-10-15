@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munchify | Track order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="customer-view workflow-view tracking-view">
+        <header class="customer-header">
+            <a href="index.html" class="workflow-brand" aria-label="Back to Munchify">
+                <img src="./images/munchify-clean-logo.svg" alt="Munchify" class="customer-brand-logo">
+            </a>
+            <nav class="customer-nav" aria-label="Order navigation">
+                <a href="index.html#restaurants">Restaurants</a>
+                <a href="checkout.html">Cart</a>
+            </nav>
+            <a href="index.html" class="customer-account-link">Back to Munchify</a>
+        </header>
+
+        <main class="customer-main workflow-main">
+            <div class="workflow-heading">
+                <p class="eyebrow eyebrow-dark">ORDER STATUS</p>
+                <h1>Track your delivery</h1>
+                <p>Follow your order from the restaurant kitchen to your door.</p>
+            </div>
+
+            <section id="tracking-empty" class="tracking-empty" hidden>
+                <h2>No order to track yet</h2>
+                <p>Once you place an order, its delivery time and progress will appear here.</p>
+                <a href="index.html#restaurants" class="primary-btn">Browse restaurants</a>
+            </section>
+
+            <section id="tracking-content" class="tracking-layout" hidden>
+                <article class="tracking-main-panel">
+                    <div class="tracking-order-heading">
+                        <div>
+                            <p class="eyebrow">ORDER <span id="tracking-order-id"></span></p>
+                            <h2 id="tracking-restaurant-name"></h2>
+                            <p id="tracking-order-summary"></p>
+                        </div>
+                        <span id="tracking-status-badge" class="order-status-badge"></span>
+                    </div>
+
+                    <div class="eta-display">
+                        <span class="eta-kicker">Estimated arrival</span>
+                        <strong id="tracking-eta">Calculating...</strong>
+                        <span id="tracking-countdown"></span>
+                    </div>
+
+                    <ol class="order-steps" id="order-steps" aria-label="Delivery progress">
+                        <li data-step="placed"><span class="step-marker">1</span><div><strong>Order placed</strong><small>Sent to the restaurant</small></div></li>
+                        <li data-step="confirmed"><span class="step-marker">2</span><div><strong>Restaurant confirmed</strong><small>Your meal is being prepared</small></div></li>
+                        <li data-step="preparing"><span class="step-marker">3</span><div><strong>Preparing your order</strong><small>Freshly made for you</small></div></li>
+                        <li data-step="picked-up"><span class="step-marker">4</span><div><strong>On the way</strong><small>Rider is heading to your address</small></div></li>
+                        <li data-step="delivered"><span class="step-marker">5</span><div><strong>Delivered</strong><small>Enjoy your meal</small></div></li>
+                    </ol>
+
+                    <div class="tracking-updates">
+                        <h3>Latest updates</h3>
+                        <ol id="tracking-events"></ol>
+                    </div>
+                </article>
+
+                <aside class="tracking-side-panel">
+                    <section>
+                        <p class="eyebrow">DELIVERING TO</p>
+                        <strong id="tracking-customer-name"></strong>
+                        <p id="tracking-address"></p>
+                        <p id="tracking-instructions"></p>
+                    </section>
+                    <section>
+                        <p class="eyebrow">ORDER TOTAL</p>
+                        <strong id="tracking-total"></strong>
+                        <p>Cash on delivery</p>
+                    </section>
+                    <a href="index.html#restaurants" class="secondary-btn">Order again</a>
+                </aside>
+            </section>
+        </main>
+    </div>
+    <script src="menu-data.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

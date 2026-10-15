@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Management</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-header">
+                    <img src="./images/munchify-clean-logo.svg" alt="Munchify logo" class="brand-logo">
+                    <div class="header-text">
+                        <span>Hi, <span id="user-name">Vendor</span></span>
+                    </div>
+                    <div class="sidebar-profile">
+                        <img src="./images/Hamburger-cuate.svg" id="vendor-sidebar-photo" alt="Vendor profile photo">
+                    </div>
+                    <button class="sd-toggle" aria-label="Toggle sidebar">
+                        <img src="./images/next.png" alt="Toggle sidebar">
+                    </button>
+                </div>
+
+                <nav class="sidebar-nav" aria-label="Sidebar">
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                <i class="bx bx-home"></i>
+                                <span class="nav-link-text">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="daily-operations.html">
+                                <i class="bx bx-bar-chart"></i>
+                                <span class="nav-link-text">Daily Operations</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="business-management.html">
+                                <i class="bx bx-cog"></i>
+                                <span class="nav-link-text">Business Management</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="delivery-dynamics.html">
+                                <i class="bx bx-map"></i>
+                                <span class="nav-link-text">Delivery Dynamics</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="log-out">
+                    <button id="log-out-btn">
+                        <i class="bx bx-arrow-out-left-square-half"></i>
+                        <span class="out-text">Log out</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="header">
+                <div class="header-title">
+                    <p class="eyebrow">Finance</p>
+                    <h2>Business Management</h2>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="bx bx-search"></i>
+                        <input type="text" placeholder="Search reports" aria-label="Search reports">
+                    </div>
+                    <button class="icon-btn" aria-label="Settings"><i class="bx bx-cog"></i></button>
+                    <button class="icon-btn" aria-label="Notifications"><i class="bx bx-bell-ring"></i></button>
+                </div>
+            </header>
+
+            <section class="stats-grid">
+                <article class="stat-card accent-card">
+                    <div class="stat-icon"><i class="bx bx-wallet"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Gross sales</span>
+                        <strong id="finance-gross">₦0</strong>
+                        <small class="positive"><i class="bx bx-up-arrow-alt"></i> +12.8% vs last month</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon alt"><i class="bx bx-receipt"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Commission</span>
+                        <strong id="finance-commission">₦0</strong>
+                        <small class="neutral"><i class="bx bx-percent"></i> 5% app fee</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon warm"><i class="bx bx-money"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Net payout</span>
+                        <strong id="finance-net">₦0</strong>
+                        <small class="positive"><i class="bx bx-check"></i> On track this cycle</small>
+                    </div>
+                </article>
+            </section>
+
+            <section class="panel-grid finance-layout">
+                <article class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <p class="eyebrow">Breakdown</p>
+                            <h3>Earnings summary</h3>
+                        </div>
+                        <span class="pill">This month</span>
+                    </div>
+
+                    <div class="finance-breakdown">
+                        <div class="finance-row">
+                            <span>Gross order value</span>
+                            <strong id="finance-breakdown-gross">₦0</strong>
+                        </div>
+                        <div class="finance-row">
+                            <span>Platform commission (5%)</span>
+                            <strong id="finance-breakdown-commission">-₦0</strong>
+                        </div>
+                        <div class="finance-row">
+                            <span>Delivery fee share</span>
+                            <strong id="finance-delivery">₦0</strong>
+                        </div>
+                        <div class="finance-row">
+                            <span>Marketing / promos</span>
+                            <strong id="finance-promos">₦0</strong>
+                        </div>
+                        <div class="finance-row total-row-finance">
+                            <span>Net earnings</span>
+                            <strong id="finance-breakdown-net">₦0</strong>
+                        </div>
+                    </div>
+                </article>
+
+                <aside class="panel side-panel">
+                    <div class="panel-header compact">
+                        <div>
+                            <p class="eyebrow">Profile</p>
+                            <h3>Vendor account</h3>
+                        </div>
+                    </div>
+
+                    <div class="vendor-profile-box" id="vendor-profile-box">
+                        <div class="vendor-profile-top">
+                            <div class="vendor-profile-photo-frame">
+                                <img id="vendor-profile-photo" alt="Restaurant profile photo" hidden>
+                                <span id="vendor-profile-initial" class="rider-avatar orange">R</span>
+                            </div>
+                            <div>
+                                <strong id="vendor-profile-name">Restaurant</strong>
+                                <span id="vendor-profile-zone">Abuja</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-photo-control">
+                            <label for="vendor-profile-photo-input">Restaurant profile photo</label>
+                            <input type="file" id="vendor-profile-photo-input" accept="image/*">
+                            <button type="button" id="vendor-profile-photo-remove" class="inventory-remove" hidden>Remove photo</button>
+                            <p id="vendor-profile-photo-status" role="status" aria-live="polite"></p>
+                        </div>
+
+                        <div class="profile-form">
+                            <label>
+                                <span>Opening time</span>
+                                <input type="time" value="09:00" id="vendor-opening-time">
+                            </label>
+                            <label>
+                                <span>Closing time</span>
+                                <input type="time" value="23:30" id="vendor-closing-time">
+                            </label>
+                            <label>
+                                <span>Kitchen status</span>
+                                <select id="vendor-kitchen-status">
+                                    <option>Open</option>
+                                    <option>Closed</option>
+                                    <option>Peak hours</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="panel">
+                <div class="panel-header">
+                    <div>
+                        <p class="eyebrow">Payout</p>
+                        <h3>Order settlements</h3>
+                    </div>
+                </div>
+
+                <div class="timeline-list" id="payout-timeline"></div>
+            </section>
+        </main>
+
+        <aside class="right-panel">
+            <div class="promo-card">
+                <p class="eyebrow">App earnings</p>
+                <h3>Commission fee</h3>
+                <div class="mini-stat-block">
+                    <strong id="finance-commission-rate">5%</strong>
+                    <span>Platform commission on all app orders</span>
+                </div>
+                <div class="mini-stat-block">
+                    <strong id="finance-commission-total">₦0</strong>
+                    <span>Calculated from completed orders</span>
+                </div>
+            </div>
+
+            <div class="mini-panel">
+                <div class="panel-header compact">
+                    <div>
+                        <p class="eyebrow">Notes</p>
+                        <h3>Business tips</h3>
+                    </div>
+                </div>
+                <ul class="alert-list">
+                    <li>Priority times are trending higher on weekends.</li>
+                    <li>Bundle meals improved your conversion this week.</li>
+                    <li>Keep fryer inventory above 20% during peak hours.</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <script src="menu-data.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
